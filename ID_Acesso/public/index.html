@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Acesso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #player-id {
+            font-size: 20px;
+            color: green;
+        }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+</head>
+<body>
+    <h1>Registro de Acesso</h1>
+    <h2>Player Connection</h2>
+    <!-- Elemento onde será exibido o ID do jogador -->
+    <p>Seu ID é: <span id="player-id">Aguardando conexão...</span></p>
+    <!-- Formulário para o usuário informar o login -->
+    <div>
+        <label for="login">Login:</label>
+        <input type="text" id="login" placeholder="Digite seu login">
+        <button onclick="registrarAcesso()">Registrar Acesso</button>
+    </div>
+
+    <div id="logs">
+        <h2>Logs:</h2>
+        <ul id="logList"></ul>
+    </div>
+
+    <script type="module">
+        // Cria uma instância de conexão com o servidor usando o socket.io.
+        const socket = io()
+
+        // Define um evento que é executado quando o cliente se conecta com sucesso ao servidor.
+        socket.on('connect', () => {
+            // Obtém o identificador único do cliente gerado pelo servidor (ID do socket).
+            const playerId = socket.id
+
+            // Exibe no console uma mensagem indicando que o jogador foi conectado, junto com seu ID.
+            console.log(`Player connected on Client with id: ${playerId}`)
+
+            // Atualiza o elemento HTML com o ID do jogador.
+            const playerIdElement = document.getElementById('player-id')
+            playerIdElement.textContent = playerId
+        })
+
+        function registrarAcesso() {
+            const logList = document.getElementById('logList');
+            const agora = new Date().toLocaleString(); // Captura a data e hora atual
+            const login = document.getElementById('login').value; // Obtém o login digitado pelo usuário
+            
+            if (!login) {
+                alert("Por favor, insira seu login antes de registrar.");
+                return;
+            }
+
+            // Cria um novo registro no log local
+            const novoLog = document.createElement('li');
+            novoLog.textContent = `Usuário: ${login}, Acesso registrado em: ${agora}`;
+            logList.appendChild(novoLog);
+
+            // Envia o registro para o servidor
+            fetch('http://localhost:3000/api/registro', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ login: login, hora: agora })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log("Registro enviado com sucesso:", response);
+                } else {
+                    console.error("Erro ao enviar o registro:", response.statusText);
+                    alert("Erro ao registrar o acesso no servidor!");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao enviar o registro:", error);
+                alert("Erro ao registrar o acesso no servidor!");
+            });
+        }
+    </script>
+</body>
+</html>
