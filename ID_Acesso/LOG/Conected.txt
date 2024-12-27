@@ -1,1 +1,12 @@
-{"tipo":"conexão","jogador":"JN_MAH4oNDJdsUe-AAAB","horario":"12/27/2024, 9:53:02 PM"}
+{"tipo":"conexão","jogador":"am-EuNKppIe6MgdVAAAB","horario":"12/27/2024, 11:21:18 PM"}
+{"tipo":"conexão","jogador":"ahpYJvuhcReaMMJ2AAAB","horario":"12/27/2024, 11:23:32 PM"}
+{"tipo":"conexão","jogador":"ZY7OwVGz0O-SlfjyAAAD","horario":"12/27/2024, 11:23:36 PM"}
+{"tipo":"conexão","jogador":"3UKTIV5Fo5fekBT8AAAB","horario":"12/27/2024, 11:33:35 PM"}
+{"tipo":"conexão","jogador":"-dAIjpaVKucs3SsrAAAD","horario":"12/27/2024, 11:33:38 PM"}
+{"tipo":"conexão","jogador":"0UvlhHK2vLsJpMduAAAB","horario":"12/27/2024, 11:35:18 PM"}
+{"tipo":"conexão","jogador":"Tz9AJ5ouvbFo59jkAAAD","horario":"12/27/2024, 11:35:19 PM"}
+{"tipo":"conexão","jogador":"5XqH_dlOjYitf8esAAAF","horario":"12/27/2024, 11:35:20 PM"}
+{"tipo":"conexão","jogador":"2u4DiD18MnuLLY5FAAAB","horario":"12/27/2024, 11:47:53 PM"}
+{"tipo":"conexão","jogador":"zVlsMQaLriZ5R_Y0AAAD","horario":"12/27/2024, 11:47:54 PM"}
+{"tipo":"conexão","jogador":"DAFK1RrDfiJQPFwuAAAF","horario":"12/27/2024, 11:47:55 PM"}
+{"tipo":"conexão","jogador":"glAUopKR2RTsVybbAAAH","horario":"12/27/2024, 11:47:56 PM"}

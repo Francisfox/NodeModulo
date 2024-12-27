@@ -1,93 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="pt-br">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Acesso</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #player-id {
-            font-size: 20px;
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script src="/socket.io/socket.io.js"></script>
-</head>
-
-</head>
-<body>
-    <h1>Registro de Acesso</h1>
-    <h2>Player Connection</h2>
-    <!-- Elemento onde será exibido o ID do jogador -->
-    <p>Seu ID é: <span id="player-id">Aguardando conexão...</span></p>
-    <!-- Formulário para o usuário informar o login -->
-    <div>
-        <label for="login">Login:</label>
-        <input type="text" id="login" placeholder="Digite seu login">
-        <button onclick="registrarAcesso()">Registrar Acesso</button>
-    </div>
-
-    <div id="logs">
-        <h2>Logs:</h2>
-        <ul id="logList"></ul>
-    </div>
-
-    <script type="module">
-        // Cria uma instância de conexão com o servidor usando o socket.io.
-        const socket = io()
-
-        // Define um evento que é executado quando o cliente se conecta com sucesso ao servidor.
-        socket.on('connect', () => {
-            // Obtém o identificador único do cliente gerado pelo servidor (ID do socket).
-            const playerId = socket.id
-
-            // Exibe no console uma mensagem indicando que o jogador foi conectado, junto com seu ID.
-            console.log(`Player connected on Client with id: ${playerId}`)
-
-            // Atualiza o elemento HTML com o ID do jogador.
-            const playerIdElement = document.getElementById('player-id')
-            playerIdElement.textContent = playerId
-        })
-
-        function registrarAcesso() {
-            const logList = document.getElementById('logList');
-            const agora = new Date().toLocaleString(); // Captura a data e hora atual
-            const login = document.getElementById('login').value; // Obtém o login digitado pelo usuário
-            
-            if (!login) {
-                alert("Por favor, insira seu login antes de registrar.");
-                return;
-            }
-
-            // Cria um novo registro no log local
-            const novoLog = document.createElement('li');
-            novoLog.textContent = `Usuário: ${login}, Acesso registrado em: ${agora}`;
-            logList.appendChild(novoLog);
-
-            // Envia o registro para o servidor
-            fetch('http://localhost:3000/api/registro', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ login: login, hora: agora })
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Registro enviado com sucesso:", response);
-                } else {
-                    console.error("Erro ao enviar o registro:", response.statusText);
-                    alert("Erro ao registrar o acesso no servidor!");
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao enviar o registro:", error);
-                alert("Erro ao registrar o acesso no servidor!");
-            });
-        }
-    </script>
-</body>
+    <title>Aplicativo de código de peças</title> 
+    </head>
+    <body >
+        <div id="container">
+          <h4>SUPORTE TÉCNICO</h4>
+          <h6>CONSULTA DE PEÇAS</h6>
+              
+          <!--CONTROLE DE ENTRADA DE DADOS DO MODELO DO EQUIPAMENTO-->
+          <input list="btModelo" type="text" class="form-control" onchange="modeloSelecionado()" onkeyup="filterModel()" placeholder="Digite aqui o modelo do equipamento" id="input-btModelo" />
+          <datalist id="btModelo" ></datalist>
+        
+          <!--FILTRO DO NOME DA PEÇA-->
+          <input type="text" class="form-control" onkeyup="filterTable()" id="formGroupExampleInput" placeholder="Digite aqui o nome da peça">
+        
+          <!-- Radios para escolha de MP-->
+          <div id="radios">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input styled-radio" type="radio" name="inlineRadioOptions" id="radio_Pecas" value="PEÇAS" checked="true" onclick="modeloSelecionado()">
+              <label class="form-check-label styled-label" for="radio_Pecas">PEÇAS</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input styled-radio" type="radio" name="inlineRadioOptions" id="radio_MP" value="MP" onclick="modeloSelecionado()">
+              <label class="form-check-label styled-label" for="radio_MP">MP</label>
+            </div>    
+            <div class="form-check form-check-inline">       
+              <label class="form-check-label" for="inlineRadio2" id="lbPin"></label>
+            </div> 
+          </div>
+             
+          <!--área de exibição dos dados-->
+          <table class="table table-hover" id="galeria" >
+            <thead id="cabecalho">
+              <tr id="titulo">  
+                <th scope="col">MODELO</th>
+                <th scope="col">DESCRIÇÃO</th>
+                <th scope="col">CÓDIGO</th>
+              </tr>
+            </thead>
+            <tbody id="exibicao"></tbody>
+          </table>
+          <div id="logo">
+            <img src="simpress.png" alt="Logo da Simpress" id="logomarca">
+          </div>
+          <script src="script.js"></script>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
+        </div>   
+      </body>
 </html>

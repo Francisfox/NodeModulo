@@ -1,1 +1,1 @@
-{"tipo":"desconexão","jogador":"JN_MAH4oNDJdsUe-AAAB","horario":"12/27/2024, 9:53:18 PM"}
+{"tipo":"desconexão","jogador":"ZY7OwVGz0O-SlfjyAAAD","horario":"12/27/2024, 11:26:02 PM"}
