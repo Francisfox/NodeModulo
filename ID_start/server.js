@@ -12,19 +12,17 @@ import { Server } from 'socket.io';
 
 const app = express()
 const server = http.createServer(app)
-const io = new Server(server);
+const sockets = new Server(server);
 
 app.use(express.static('public'))
 
-io.on('connection', (socket) => {
+sockets.on('connection', (socket) => {
+    const playerId = socket.id
     const state = {
         players: {},
         fruits: {},
     }
-    const playerId = socket.id
-    console.log(`> Player connected: ${playerId}`)
-
- 
+    console.log(`> Player connected: ${playerId}`)   
 
     socket.emit('setup', state)
 

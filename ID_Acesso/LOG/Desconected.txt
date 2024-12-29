@@ -1,3 +1,15 @@
 {"tipo":"desconexão","jogador":"ZY7OwVGz0O-SlfjyAAAD","horario":"12/27/2024, 11:26:02 PM"}
 {"tipo":"desconexão","jogador":"LYGdrX_O0QolBjbyAAAB","horario":"12/29/2024, 6:54:29 PM"}
 {"tipo":"desconexão","jogador":"lfUWgfoxzkjskywCAAAB","horario":"12/29/2024, 7:01:10 PM"}
+{"tipo":"desconexão","jogador":"LaBVNUa6WO5M9R1iAAAF","horario":"12/29/2024, 9:08:03 PM"}
+{"tipo":"desconexão","jogador":"AFSqCflEKJdblnrVAAAD","horario":"12/29/2024, 9:09:09 PM"}
+{"tipo":"desconexão","jogador":"YkAenDwnO7Gpjx05AAAC","horario":"12/29/2024, 9:09:12 PM"}
+{"tipo":"desconexão","jogador":"ZLQi-VP4JNFom6xUAAAH","horario":"12/29/2024, 9:09:25 PM"}
+{"tipo":"desconexão","jogador":"f5PjkVoYCI_8XdvaAAAB","horario":"12/29/2024, 9:10:44 PM"}
+{"tipo":"desconexão","jogador":"jG_mWI9zscGDljphAAAB","horario":"12/29/2024, 9:12:47 PM"}
+{"tipo":"desconexão","jogador":"8CkrqExZPmaWH6cAAAAD","horario":"12/29/2024, 9:14:25 PM"}
+{"tipo":"desconexão","jogador":"iHLZ7FwUeHsyNp8fAAAF","horario":"12/29/2024, 9:33:18 PM"}
+{"tipo":"desconexão","jogador":"_VJU3sS4cIE0NpmYAAAH","horario":"12/29/2024, 9:34:18 PM"}
+{"tipo":"desconexão","jogador":"FZ3cPHIn5dTi0ryXAAAJ","horario":"12/29/2024, 9:35:22 PM"}
+{"tipo":"desconexão","jogador":"hpiaSdmJKIZWBo-iAAAC","horario":"12/29/2024, 9:39:18 PM"}
+{"tipo":"desconexão","jogador":"9JeqpOC667WPPziLAAAD","horario":"12/29/2024, 9:39:38 PM"}

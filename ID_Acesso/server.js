@@ -10,15 +10,17 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const sockets = new Server(server);
 
 // Middleware para parsing de JSON
 app.use(express.json());
 app.use(express.static('public'));
 
 // Configuração do Socket.IO
-io.on('connection', (socket) => {
-    const playerId = socket.id;
+sockets.on('connection', (socket) => {
+    const playerId = socket.id
+    console.log(`> Player connected: ${playerId}`)   
+
     const connectionTime = new Date().toLocaleString();
 
     const registroConexao = {
@@ -33,25 +35,26 @@ io.on('connection', (socket) => {
             console.error('Erro ao gravar o registro de conexão:', err);
         }
     });
-    io.emit('setup',registroConexao)
-});
-io.on('disconnect', () => {
-    const disconnectionTime = new Date().toLocaleString();
+    socket.emit('setup',registroConexao)
 
-    const registroDesconexao = {
-        tipo: 'desconexão',
-        jogador: playerId,
-        horario: disconnectionTime,
-    };
+    socket.on('disconnect', () => {
+        const disconnectionTime = new Date().toLocaleString();
 
-    // Grava o registro de desconexão no arquivo
-    fs.appendFile('./LOG/Desconected.txt', JSON.stringify(registroDesconexao) + '\n', (err) => {
-        if (err) {
-            console.error('Erro ao gravar o registro de desconexão:', err);
-        }
+        const registroDesconexao = {
+            tipo: 'desconexão',
+            jogador: playerId,
+            horario: disconnectionTime,
+        };
+
+        // Grava o registro de desconexão no arquivo
+        fs.appendFile('./LOG/Desconected.txt', JSON.stringify(registroDesconexao) + '\n', (err) => {
+            if (err) {
+                console.error('Erro ao gravar o registro de desconexão:', err);
+            }
+        });
+        console.log(`> Player desconnected: ${playerId}`) 
     });
 });
-
 // Endpoint para registrar acessos
 app.post('/api/registro', (req, res) => {
     const { login, hora } = req.body;
