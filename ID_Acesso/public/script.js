@@ -17,9 +17,9 @@ socket.on('connect', () => {
     // Exibe no console uma mensagem indicando que o jogador foi conectado, junto com seu ID.
     console.log(`Player connected on Client with id: ${playerId}`)
 
-    // Atualiza o elemento HTML com o ID do jogador.
-    const playerIdElement = document.getElementById('player-id')
-    playerIdElement.textContent = playerId
+})
+socket.on('setup',(registroConexao) =>{
+    console.log(registroConexao)
 })
 // Evento para receber os dados principais
 socket.on('dados', (data) => {
