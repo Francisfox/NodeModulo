@@ -21,8 +21,11 @@ sockets.on('connection', (socket) => {
     const playerId = socket.id
     console.log(`> Player connected: ${playerId}`)   
 
-    const connectionTime = new Date().toLocaleString();
-
+// Obtendo a data e hora do servidor
+const connectionTime = new Date().toLocaleString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+    hour12: false // Para exibir no formato 24h
+});
     const registroConexao = {
         tipo: 'conexão',
         jogador: playerId,

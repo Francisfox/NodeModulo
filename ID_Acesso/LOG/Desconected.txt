@@ -13,3 +13,7 @@
 {"tipo":"desconexão","jogador":"FZ3cPHIn5dTi0ryXAAAJ","horario":"12/29/2024, 9:35:22 PM"}
 {"tipo":"desconexão","jogador":"hpiaSdmJKIZWBo-iAAAC","horario":"12/29/2024, 9:39:18 PM"}
 {"tipo":"desconexão","jogador":"9JeqpOC667WPPziLAAAD","horario":"12/29/2024, 9:39:38 PM"}
+{"tipo":"desconexão","jogador":"1_qGvJU0FHjW0EfjAAAD","horario":"12/29/2024, 10:26:02 PM"}
+{"tipo":"desconexão","jogador":"qDx-LhWq8VYl8b_1AAAB","horario":"12/29/2024, 10:26:06 PM"}
+{"tipo":"desconexão","jogador":"IPWa76_IOFU4UJmxAAAF","horario":"12/29/2024, 10:26:12 PM"}
+{"tipo":"desconexão","jogador":"JFL8ebD7g9A6B4VDAAAH","horario":"12/29/2024, 10:54:10 PM"}
