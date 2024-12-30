@@ -28,3 +28,5 @@
 {"tipo":"desconexão","jogador":"Y5C9QrCyAgGqJkdjAAAE","horario":"12/30/2024, 2:44:12 AM"}
 {"tipo":"desconexão","jogador":"YWvYFTv9z0iES9zEAAAD","horario":"12/30/2024, 2:44:13 AM"}
 {"tipo":"desconexão","jogador":"CwPJhrM5cer5ZzQvAAAH","horario":"12/30/2024, 2:50:37 AM"}
+{"tipo":"desconexão","jogador":"LDkXrBDZ4F-IrtVUAAAB","horario":"12/30/2024, 6:31:03 PM"}
+{"tipo":"desconexão","jogador":"JwUtMqEZ_YdtXTzpAAAD","horario":"12/30/2024, 6:33:49 PM"}

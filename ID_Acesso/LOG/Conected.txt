@@ -77,3 +77,7 @@
 {"tipo":"conexão","jogador":"Wiy-bu7E5mIoTRAXAAAF","horario":"29/12/2024, 23:43:41"}
 {"tipo":"conexão","jogador":"CwPJhrM5cer5ZzQvAAAH","horario":"29/12/2024, 23:43:53"}
 {"tipo":"conexão","jogador":"Z-MrFEzZj1SfCs5WAAAJ","horario":"29/12/2024, 23:50:41"}
+{"tipo":"conexão","jogador":"oY3ZFVTioOQiCkvrAAAB","horario":"30/12/2024, 09:04:40"}
+{"tipo":"conexão","jogador":"LDkXrBDZ4F-IrtVUAAAB","horario":"30/12/2024, 14:14:10"}
+{"tipo":"conexão","jogador":"JwUtMqEZ_YdtXTzpAAAD","horario":"30/12/2024, 15:31:03"}
+{"tipo":"conexão","jogador":"E2l547MjSMVNk6wzAAAF","horario":"30/12/2024, 15:33:50"}
