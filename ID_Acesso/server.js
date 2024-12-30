@@ -1,9 +1,17 @@
+//npm init -y
+//npm isntall express --save
+//npm install socket.io
+
+//para rodar a aplicação no servidor node entrar na pasta 
+//cd ID_Acesso
+//npm start
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import http from 'http';
 import { Server } from 'socket.io';
+import ItemModelo from './public/modelo.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,6 +19,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const server = http.createServer(app);
 const sockets = new Server(server);
+const Modelo = ItemModelo();
 
 // Middleware para parsing de JSON
 app.use(express.json());
@@ -20,7 +29,8 @@ app.use(express.static('public'));
 sockets.on('connection', (socket) => {
     const playerId = socket.id
     console.log(`> Player connected: ${playerId}`)   
-
+      
+    
 // Obtendo a data e hora do servidor
 const connectionTime = new Date().toLocaleString("pt-BR", {
     timeZone: "America/Sao_Paulo",
@@ -38,7 +48,7 @@ const connectionTime = new Date().toLocaleString("pt-BR", {
             console.error('Erro ao gravar o registro de conexão:', err);
         }
     });
-    socket.emit('setup',registroConexao)
+    socket.emit('setup',Modelo.CodigoPin)
 
     socket.on('disconnect', () => {
         const disconnectionTime = new Date().toLocaleString();
